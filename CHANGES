@@ -1,0 +1,19 @@
+Changelog of the GreekOCR Toolkit for Gamera
+============================================
+
+Version 2.0.0, Apr 28, 2025
+---------------------------
+
+ - ported to Python 3.x, Gamera 4.x and setuptools
+
+
+Version 1.0.1, Sep 19, 2011
+---------------------------
+
+ - FSF address corrected
+
+
+Version 1.0.0, Mar 09, 2011
+---------------------------
+
+ - first creation

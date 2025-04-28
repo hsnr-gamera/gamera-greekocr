@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamera-database version="2.0">
+  <symbols>
+    <symbol name="_group"/>
+    <symbol name="_group._part"/>
+    <symbol name="_split.cc_analysis"/>
+    <symbol name="_split.cc_and_cluster"/>
+    <symbol name="_split.splitx"/>
+    <symbol name="_split.splitx_left"/>
+    <symbol name="_split.splitx_max"/>
+    <symbol name="_split.splitx_right"/>
+    <symbol name="_split.splity"/>
+    <symbol name="_split.splity_bottom"/>
+    <symbol name="_split.splity_top"/>
+    <symbol name="combining.acute.accent"/>
+    <symbol name="combining.comma.above.and.combining.acute.accent"/>
+    <symbol name="combining.grave.accent"/>
+    <symbol name="combining.greek.perispomeni.and.combining.comma.above"/>
+    <symbol name="combining.reversed.comma.above"/>
+    <symbol
+    name="combining.reversed.comma.above.and.combining.acute.accent"/>
+    <symbol name="comma"/>
+    <symbol name="full.stop"/>
+    <symbol name="greek.capital.letter.alpha"/>
+    <symbol name="greek.capital.letter.epsilon"/>
+    <symbol name="greek.capital.letter.iota"/>
+    <symbol name="greek.capital.letter.kappa"/>
+    <symbol name="greek.capital.letter.lamda"/>
+    <symbol name="greek.capital.letter.mu"/>
+    <symbol name="greek.capital.letter.omega"/>
+    <symbol name="greek.capital.letter.phi"/>
+    <symbol name="greek.capital.letter.pi"/>
+    <symbol name="greek.capital.letter.sigma"/>
+    <symbol name="greek.capital.letter.tau"/>
+    <symbol name="greek.small.letter.alpha"/>
+    <symbol name="greek.small.letter.alpha.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.alpha.and.combining.comma.above"/>
+    <symbol
+    name="greek.small.letter.alpha.and.combining.comma.above.and.combining.acute.accent"/>
+    <symbol
+    name="greek.small.letter.alpha.and.combining.comma.above.and.combining.acute.accent.and.greek.small.letter.gamma"/>
+    <symbol name="greek.small.letter.alpha.and.combining.grave.accent"/>
+    <symbol name="greek.small.letter.alpha.and.combining.greek.perispomeni"/>
+    <symbol
+    name="greek.small.letter.alpha.and.greek.small.letter.upsilon.and.combining.comma.above.and.greek.small.letter.tau"/>
+    <symbol name="greek.small.letter.beta"/>
+    <symbol name="greek.small.letter.chi"/>
+    <symbol name="greek.small.letter.delta"/>
+    <symbol name="greek.small.letter.epsilon"/>
+    <symbol name="greek.small.letter.epsilon.and.combining.acute.accent"/>
+    <symbol
+    name="greek.small.letter.epsilon.and.combining.acute.accent.and.greek.small.letter.gamma"/>
+    <symbol name="greek.small.letter.epsilon.and.combining.comma.above"/>
+    <symbol
+    name="greek.small.letter.epsilon.and.combining.comma.above.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.epsilon.and.combining.grave.accent"/>
+    <symbol
+    name="greek.small.letter.epsilon.and.combining.reversed.comma.above"/>
+    <symbol
+    name="greek.small.letter.epsilon.and.combining.reversed.comma.above.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.epsilon.and.greek.small.letter.nu"/>
+    <symbol name="greek.small.letter.eta"/>
+    <symbol name="greek.small.letter.eta.and.combining.acute.accent"/>
+    <symbol
+    name="greek.small.letter.eta.and.combining.comma.above.and.combining.grave.accent"/>
+    <symbol name="greek.small.letter.eta.and.combining.grave.accent"/>
+    <symbol name="greek.small.letter.eta.and.combining.greek.perispomeni"/>
+    <symbol
+    name="greek.small.letter.eta.and.combining.greek.perispomeni.and.combining.comma.above"/>
+    <symbol
+    name="greek.small.letter.eta.and.combining.greek.perispomeni.and.combining.greek.ypogegrammeni"/>
+    <symbol name="greek.small.letter.eta.and.combining.greek.ypogegrammeni"/>
+    <symbol
+    name="greek.small.letter.eta.and.combining.reversed.comma.above"/>
+    <symbol
+    name="greek.small.letter.eta.and.combining.reversed.comma.above.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.final.sigma"/>
+    <symbol name="greek.small.letter.gamma"/>
+    <symbol
+    name="greek.small.letter.gamma.and.combining.acute.accent.and.combining.diaresis"/>
+    <symbol name="greek.small.letter.gamma.and.greek.small.letter.gamma"/>
+    <symbol name="greek.small.letter.iota"/>
+    <symbol name="greek.small.letter.iota.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.iota.and.combining.comma.above"/>
+    <symbol
+    name="greek.small.letter.iota.and.combining.comma.above.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.iota.and.combining.grave.accent"/>
+    <symbol name="greek.small.letter.iota.and.combining.greek.perispomeni"/>
+    <symbol
+    name="greek.small.letter.iota.and.combining.greek.perispomeni.and.combining.comma.above"/>
+    <symbol
+    name="greek.small.letter.iota.and.combining.reversed.comma.above"/>
+    <symbol name="greek.small.letter.kappa"/>
+    <symbol name="greek.small.letter.lamda"/>
+    <symbol name="greek.small.letter.mu"/>
+    <symbol name="greek.small.letter.nu"/>
+    <symbol name="greek.small.letter.omega"/>
+    <symbol name="greek.small.letter.omega.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.omega.and.combining.grave.accent"/>
+    <symbol name="greek.small.letter.omega.and.combining.greek.perispomeni"/>
+    <symbol
+    name="greek.small.letter.omega.and.combining.greek.perispomeni.and.combining.comma.above"/>
+    <symbol
+    name="greek.small.letter.omega.and.combining.greek.perispomeni.and.combining.greek.ypogegrammeni"/>
+    <symbol
+    name="greek.small.letter.omega.and.combining.greek.ypogegrammeni"/>
+    <symbol
+    name="greek.small.letter.omega.and.combining.reversed.comma.above"/>
+    <symbol
+    name="greek.small.letter.omega.and.combining.reversed.comma.above.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.omicron"/>
+    <symbol name="greek.small.letter.omicron.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.omicron.and.combining.comma.above"/>
+    <symbol
+    name="greek.small.letter.omicron.and.combining.comma.above.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.omicron.and.combining.grave.accent"/>
+    <symbol
+    name="greek.small.letter.omicron.and.combining.reversed.comma.above"/>
+    <symbol
+    name="greek.small.letter.omicron.and.combining.reversed.comma.above.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.phi"/>
+    <symbol name="greek.small.letter.pi"/>
+    <symbol name="greek.small.letter.psi"/>
+    <symbol name="greek.small.letter.rho"/>
+    <symbol
+    name="greek.small.letter.rho.and.combining.reversed.comma.above"/>
+    <symbol name="greek.small.letter.sigma"/>
+    <symbol name="greek.small.letter.sigma.and.greek.small.letter.tau"/>
+    <symbol
+    name="greek.small.letter.sigma.and.greek.small.letter.upsilon.and.combining.grave.accent"/>
+    <symbol name="greek.small.letter.sigma.and.skip"/>
+    <symbol name="greek.small.letter.tau"/>
+    <symbol name="greek.small.letter.tau.and.greek.small.letter.upsilon"/>
+    <symbol name="greek.small.letter.upsilon"/>
+    <symbol name="greek.small.letter.upsilon.and.combining.acute.accent"/>
+    <symbol
+    name="greek.small.letter.upsilon.and.combining.acute.accent.and.greek.small.letter.tau"/>
+    <symbol name="greek.small.letter.upsilon.and.combining.comma.above"/>
+    <symbol
+    name="greek.small.letter.upsilon.and.combining.comma.above.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.upsilon.and.combining.grave.accent"/>
+    <symbol
+    name="greek.small.letter.upsilon.and.combining.greek.perispomeni"/>
+    <symbol
+    name="greek.small.letter.upsilon.and.combining.greek.perispomeni.and.combining.comma.above"/>
+    <symbol
+    name="greek.small.letter.upsilon.and.combining.reversed.comma.above"/>
+    <symbol
+    name="greek.small.letter.upsilon.and.combining.reversed.comma.above.and.combining.acute.accent"/>
+    <symbol name="greek.small.letter.xi"/>
+    <symbol name="greek.small.letter.zeta"/>
+    <symbol name="greek.theta.symbol"/>
+    <symbol name="hyphen-minus"/>
+    <symbol name="semicolon"/>
+    <symbol name="skip"/>
+  </symbols>
+</gamera-database>

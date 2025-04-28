@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: gamera-greekocr
+Version: 2.0.0
+Summary: An addon Greek OCR toolkit for the Gamera framework for document analysis and recognition.
+Home-page: http://gamera.sourceforge.net/
+Author: Rene Baston and Christoph Dalitz and Andreas Miller
+License: GNU GPL version 2
+Platform: UNKNOWN
+Requires-Python: >=3.5
+License-File: LICENSE
+
+UNKNOWN
+

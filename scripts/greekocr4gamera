@@ -1,0 +1,147 @@
+#!/usr/bin/env python
+# -*- mode: python; indent-tabs-mode: nil; tab-width: 3 -*-
+# vim: set tabstop=3 shiftwidth=3 expandtab:
+
+# Copyright (C) 2010-2011 Christian Brandt
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+
+# This just simply runs the greekocr toolkits main function
+import sys
+
+def usage():
+   usage = "Usage:\n"
+   usage += "  greekocr4gamera.py -x <traindata> [options] <imagefile>\n"
+   usage += "\n"
+   usage += "  Options:\n"
+   usage += "   --wholistic          wholistic segmentation mode (default)\n"
+   usage += "   -w                   short for --wholistic\n"
+   usage += "   --separatistic       separatistic segmentation mode\n"
+   usage += "   -s                   short for --separatistic\n"
+   usage += "\n"
+   usage += "   --unicode <file>     specify filename for unicode output\n"
+   usage += "   -u <file>            short for --unicode\n"
+   usage += "   --teubner <file.tex> specify filename for teubner TeX output\n"
+   usage += "   -t <file>            short for --teubner\n"
+   usage += "\n"
+   usage += "   --deskew             do a skew correction (recommended)\n"
+   usage += "   --filter             filter out very large (images) and very\n" 
+   usage += "                        small components (noise)\n"
+   usage += "\n"
+   usage += "   --debug              save debug-images\n"
+   usage += "                        debug_lines.png debug_words.png debug_chars.png\n"
+   usage += "   -d                   short for --debug\n"
+   sys.stderr.write(usage)
+
+
+
+
+options = {}
+args = sys.argv[1:]
+
+i = 0
+while i < len(args):
+   if args[i] in ("-x", "--trainingdata"):
+      i += 1
+      options["trainingdata"] = args[i]
+   elif args[i] in ("--help", "-h"):
+      usage()
+   elif args[i] in ("--wholistic", "-w"):
+      options["mode"] = "wholistic"
+   elif args[i] in ("--separatistic", "-s"):
+      options["mode"] = "separatistic"
+   elif args[i] in ("-u","--unicode"):
+      i += 1
+      options["unicodeoutfile"] = args[i]
+   elif args[i] in ("-t", "--teubner"):
+      i += 1
+      options["teubneroutfile"] = args[i]
+   elif args[i] in ("-d", "--debug"):
+      options["debug"] = True
+   elif args[i] in ("--deskew"):
+      options["deskew"] = True
+   elif args[i] in ("--filter"):
+      options["filter"] = True
+   else:
+      options["imagefile"] = args[i]
+   i += 1
+
+if "trainingdata" not in options:
+   print("No Trainingdata given")
+   usage()
+   exit(1)
+if "mode" not in options:
+   options["mode"] = "wholistic"
+if "imagefile" not in options:
+   print("No filename given")
+   usage()
+   exit(2)
+
+
+from gamera.core import *
+from gamera.plugins.listutilities import median
+from gamera.toolkits.greekocr import GreekOCR
+
+g = GreekOCR()
+g.mode = options["mode"]
+g.load_trainingdata(options["trainingdata"])
+
+image = load_image(options["imagefile"])
+if image.data.pixel_type != ONEBIT:
+   image = image.to_onebit()
+
+if "filter" in options and options["filter"] == True:
+    count = 0
+    ccs = image.cc_analysis()
+    if "debug" in options and options["debug"] == True:
+       print("filter started on",len(ccs) ,"elements...")
+    median_black_area = median([cc.black_area()[0] for cc in ccs])
+    for cc in ccs:
+      if(cc.black_area()[0] > (median_black_area * 10)):
+        cc.fill_white()
+        del cc
+        count = count + 1
+    for cc in ccs:
+      if(cc.black_area()[0] < (median_black_area / 10)):
+        cc.fill_white()
+        del cc
+        count = count + 1
+    if "debug" in options and options["debug"] == True:
+       print("filter done.",len(ccs)-count,"elements left.")
+
+
+if "deskew" in options and options["deskew"] == True:
+  #from gamera.toolkits.otr.otr_staff import *
+  if "debug" in options and options["debug"] == True:
+    print("\ntry to skew correct...")
+  rotation = image.rotation_angle_projections(-10,10)[0]
+  img = image.rotate(rotation,0)
+  if "debug" in options and options["debug"] == True:
+    print("rotated with",rotation,"angle")
+
+
+
+output = g.process_image(image)
+if "debug" in options and options["debug"] == True:
+   g.save_debug_images()
+
+if "unicodeoutfile" in options:
+   g.save_text_unicode(options["unicodeoutfile"])
+elif "teubneroutfile" in options:
+   g.save_text_teubner(options["teubneroutfile"])
+else:
+   print(output)
+

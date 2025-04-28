@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<title>GreekOCR toolkit for Gamera</title>
+<link rel="stylesheet" href="default.css" type="text/css" />
+</head>
+<body>
+<div class="document" id="greekocr-toolkit-for-gamera">
+<h1 class="title">GreekOCR toolkit for Gamera</h1>
+
+<p><strong>Last modified</strong>: April 28, 2025</p>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#overview" id="id4">Overview</a><ul>
+<li><a class="reference internal" href="#approaches-for-recognizing-accents" id="id5">Approaches for recognizing accents</a></li>
+<li><a class="reference internal" href="#output-code" id="id6">Output code</a></li>
+<li><a class="reference internal" href="#limitations" id="id7">Limitations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-s-manual" id="id8">User's Manual</a></li>
+<li><a class="reference internal" href="#developer-s-documentation" id="id9">Developer's Documentation</a></li>
+<li><a class="reference internal" href="#installation" id="id10">Installation</a><ul>
+<li><a class="reference internal" href="#prerequisites" id="id11">Prerequisites</a></li>
+<li><a class="reference internal" href="#building-and-installing" id="id12">Building and Installing</a></li>
+<li><a class="reference internal" href="#uninstallation" id="id13">Uninstallation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#about-this-documentation" id="id14">About this documentation</a></li>
+</ul>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Editor:</th><td class="field-body">Christian Brandt, Christoph Dalitz, Andreas Miller</td>
+</tr>
+<tr class="field"><th class="field-name">Version:</th><td class="field-body">2.0.0</td>
+</tr>
+</tbody>
+</table>
+<p>Use the 'Addons' section on the <a class="reference external" href="http://gamera.informatik.hsnr.de/addons/">Gamera home page</a> for access to file
+releases of this toolkit.</p>
+<div class="section" id="overview">
+<h1><a class="toc-backref" href="#id4">Overview</a></h1>
+<p>The purpose of the <em>GreekOCR Toolkit</em> is to help building optical character
+recognition (OCR) systems for text documents with polytonal Greek text, i.e.
+classical Greek with a wide variety of accents. It can be used as is, but
+can also be used as a building block for implementing a custom OCR system
+for polytonal Greek.</p>
+<p>The toolkit is based on and requires the <a class="reference external" href="http://gamera.sf.net/">Gamera framework</a> for document
+analysis and recognition. Moreover it requires the <a class="reference external" href="http://gamera.informatik.hsnr.de/addons/ocr4gamera/">OCR toolkit for Gamera</a>.
+As an addon package for Gamera, it provides</p>
+<ul class="simple">
+<li>a ready-to-run python script <tt class="docutils literal">greekocr4gamera</tt> which acts as
+a basic GreekOCR-system</li>
+<li>python library functions for building a custom GreekOCR system</li>
+</ul>
+<p>Please note that the toolkit currently does not include any training data.
+This means that you must create a training data base of Greek characters
+before you can use the script <tt class="docutils literal">greekocr4gamera</tt>.</p>
+<div class="section" id="approaches-for-recognizing-accents">
+<h2><a class="toc-backref" href="#id5">Approaches for recognizing accents</a></h2>
+<p>Compared to texts with Roman letters or modern (or <em>monotonal</em>) Greek,
+classical (or <em>polytonal</em>) Greek uses a large number of accents that
+can be used in a wide range of combinations. Compared to the ordinary
+OCR process, this requires a special treatment both for attaching accents
+to characters and for recognizing the resulting combinations. From a
+general point of view, two different approaches are possible:</p>
+<dl class="docutils">
+<dt><strong>Wholistic approach:</strong></dt>
+<dd>Identify each character as a whole, including its accents.
+This approach requires that all possible character/accents combinations
+have been predefined and are present as samples in the training data.</dd>
+<dt><strong>Separatistic approach:</strong></dt>
+<dd>Identify core characters and accents separately and combine them
+subsequently. In this case, the training data contains the core
+characters and the individual accents.</dd>
+</dl>
+<p>This toolkit offers both possibilities. You must therefore make sure
+that your training data matches the chosen recognition approach.</p>
+</div>
+<div class="section" id="output-code">
+<h2><a class="toc-backref" href="#id6">Output code</a></h2>
+<p>The toolkit can generate the OCR result in two different codes:</p>
+<ul class="simple">
+<li>Unicode as specified in the Unicode standards <a class="reference external" href="http://unicode.org/charts/PDF/U0370.pdf">Greek</a>
+(Unicode range 0370-03FF) and <a class="reference external" href="http://unicode.org/charts/PDF/U0300.pdf">Combining Diacritical Marks</a>
+(Unicode range 0300-036F).</li>
+<li>LaTeX code with the <a class="reference external" href="http://www.ctan.org/tex-archive/macros/latex/contrib/teubner/">Teubner style</a> for representing polytonal Greek accents
+in combination with the Babel style option <em>polutonikogreek</em>.</li>
+</ul>
+<p>The latter option is provided for generation of a human readable graphical
+representation as a Postscript or PDF file via LaTeX.</p>
+</div>
+<div class="section" id="limitations">
+<h2><a class="toc-backref" href="#id7">Limitations</a></h2>
+<p>As the segmentation of the individual characters is based on a connected
+component analysis, the toolkit cannot deal with touching characters, unless
+they have been trained as combinations. It is therefore in general only
+applicable to printed documents, rather than handwritten documents.</p>
+<p>From a user's perspective, there are some points to beware in this toolkit:</p>
+<ul class="simple">
+<li>It does not include methods for preprocessing like skew correction
+or noise removal. For this purpose, the standard routines shipped with
+Gamera must be used beforehand, e.g. <em>rotation_angle_projections</em> for
+skew correction, or <em>despeckle</em> for noise removal.</li>
+<li>It does not provide prototypes of the Greek characters and accents.
+This means that characters must be trained on sample pages before using
+the toolkit.</li>
+<li>The standard page segmentation algorithm for textline separation
+is currently very basic.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="user-s-manual">
+<h1><a class="toc-backref" href="#id8">User's Manual</a></h1>
+<p>This documentation is written for those who want to use the toolkit
+for OCR, but are not interested in extending the toolkit itself.</p>
+<ul class="simple">
+<li><a class="reference external" href="usermanual.html">Using the toolkit</a>: gives an explanation on how to use the toolkit.</li>
+</ul>
+</div>
+<div class="section" id="developer-s-documentation">
+<h1><a class="toc-backref" href="#id9">Developer's Documentation</a></h1>
+<p>This documentation is for those who want to extend the functionality of
+the GreekOCR toolkit, or who want to write their own recognition script.</p>
+<ul class="simple">
+<li><a class="reference external" href="classes.html">Classes</a>: reference for the classes involved in the segmentation process.
+These are:<ul>
+<li><a class="reference external" href="gamera.toolkits.greekocr.greekocr.GreekOCR.html">GreekOCR</a> for Greek OCR recognition</li>
+</ul>
+</li>
+<li><a class="reference external" href="functions.html">Functions</a>: the global functions defined by the toolkit</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h1><a class="toc-backref" href="#id10">Installation</a></h1>
+<p>We have only tested the toolkit on Linux and MacOS X, but as
+the toolkit is written entirely in Python, the following
+instructions should work for any operating system.</p>
+<div class="section" id="prerequisites">
+<h2><a class="toc-backref" href="#id11">Prerequisites</a></h2>
+<p>First you will need a working installation of Gamera 4.x. See the
+<a class="reference external" href="http://gamera.sourceforge.net/">Gamera website</a> for details. It is strongly recommended that you use
+a recent version, preferably from SVN.</p>
+<p>If you want to generate the documentation, you will need two additional
+third-party Python libraries:</p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="http://docutils.sourceforge.net/">docutils</a> for handling reStructuredText documents.</li>
+<li><a class="reference external" href="http://pygments.org/">pygments</a>  for colorizing source code.</li>
+</ul>
+</blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is generally not necessary to generate the documentation
+because it is included in file releases of the toolkit.</p>
+</div>
+</div>
+<div class="section" id="building-and-installing">
+<h2><a class="toc-backref" href="#id12">Building and Installing</a></h2>
+<p>Gamera toolkits can be installed, throough pip.</p>
+<p>First create a binary &quot;wheel package&quot; under your
+user account with:</p>
+<pre class="literal-block">
+#1) build wheel
+python3 setup.py build bdist_wheel
+</pre>
+<p>This will create a package file &quot;gamera-version-architecture.whl&quot; in the
+&quot;dist&quot; directory, which can then be installed system wide as root with:</p>
+<pre class="literal-block">
+#2) installs wheel
+sudo pip3 install ./dist/gamera_greekocr-*.whl
+</pre>
+<p>Command 1) build the toolkit wheel from the sources.</p>
+<p>Command 2) installs the wheel.</p>
+<p>Note that the script <em>greekocr4gamera</em> is installed into <tt class="docutils literal">/usr/bin</tt> or
+<tt class="docutils literal">/usr/local/bin</tt> on Linux and newer versions of MacOS X.</p>
+<p>If you want to regenerate the documentation, go to the <tt class="docutils literal">doc</tt> directory
+and run the <tt class="docutils literal">gendoc.py</tt> script. The output will be placed in the <tt class="docutils literal">doc/html/</tt>
+directory.  The contents of this directory can be placed on a webserver
+for convenient viewing.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Before building the documentation you must install the
+toolkit. Otherwise <tt class="docutils literal">gendoc.py</tt> will not find the plugin documentation.</p>
+</div>
+</div>
+<div class="section" id="uninstallation">
+<h2><a class="toc-backref" href="#id13">Uninstallation</a></h2>
+<p>The unistallation works with pip like the installation:</p>
+<pre class="literal-block">
+pip3 uninstall gamera-greekocr
+</pre>
+<p>As the latter requires root privilegue, you need to use <tt class="docutils literal">sudo</tt> on Linux</p>
+</div>
+</div>
+<div class="section" id="about-this-documentation">
+<h1><a class="toc-backref" href="#id14">About this documentation</a></h1>
+<p>The documentation was written by Rene Baston and Christoph Dalitz.
+Permission is granted to copy, distribute and/or modify this documentation
+under the terms of the <a class="reference external" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share-Alike License (CC-BY-SA) v3.0</a>. In addition, permission is granted to use and/or
+modify the code snippets from the documentation without restrictions.</p>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<span class="raw-html"><div style="text-align:right;">For contact information, see <a href="http://gamera.informatik.hsnr.de/contact.html">http://gamera.informatik.hsnr.de/contact.html</a></div></span>
+</div>
+</body>
+</html>

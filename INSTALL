@@ -1,0 +1,79 @@
+========================================
+Building and installing a Gamera toolkit
+========================================
+
+This is generic information about building and installing a Gamera
+toolkit.
+
+**Please make sure that Gamera is built and fully installed before
+proceeding.**
+
+Gamera can be downloaded at http://gamera.informatik.hsnr.de/
+
+
+Standard Build and Install
+--------------------------
+Download the Toolkit from:
+
+    https://gamera.informatik.hsnr.de/addons/index.html
+
+First create a binary "wheel package" under your user account with::
+
+    python3 setup.py bdist_wheel
+
+This will create a package file "gamera-version-architecture.whl" in the
+"dist" directory, which can then be installed system wide as root with::
+
+    sudo pip3 install ./dist/gamera_greekocr-*.whl
+
+Additionally, a source code package can be created in the ``dist`` directory
+with::
+
+    python3 setup.py sdist
+
+
+Uninstallation
+--------------
+
+The unistallation works with pip3 like the installation:
+
+	pip3 uninstall gamera-greekocr
+
+As the latter requires root privilegue, you need to use ``sudo`` on Linux
+
+
+Building the documentation
+==========================
+
+Once the the toolkit is built, the documentation can be
+generated and converted to HTML.
+
+Prerequisites
+-------------
+
+Generating documentation requires two third-party Python
+libraries:
+
+  - docutils_ (version 0.3 or later) for handling reStructuredText documents.
+
+  - pygments (version 2.15.1) for colorizing code.
+
+.. _docutils: http://docutils.sourceforge.net/
+.. _pygments https://pypi.org/project/Pygments/
+
+Generating
+----------
+
+To generate the documentation, go to the ``doc`` directory and run the
+``gendoc.py`` script.
+
+   python3 gendoc.py
+
+Alternatively, you can call the ``gendoc.py`` script with the
+documentation directory as a commandline argument::
+
+   gendoc.py -d /path/to/doc
+
+The output will be placed in the ``doc/html/`` directory.  The contents of
+this directory can be placed on a webserver for convenient viewing.
+
