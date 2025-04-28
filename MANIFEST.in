@@ -1,5 +1,6 @@
-recursive-include src *.cpp *.c *.h makefile.* *.hpp *.hxx *.cxx *.txt ANNOUNCE CHANGES INSTALL KNOWNBUG LICENSE README TODO Y2KINFO
-recursive-include include *.cpp *.c *.h makefile.* *.hpp *.hxx *.cxx *.txt ANNOUNCE CHANGES INSTALL KNOWNBUG LICENSE README TODO Y2KINFO
+recursive-include src *.cpp *.c *.h makefile.* *.hpp *.hxx *.cxx *.txt ANNOUNCE CHANGES INSTALL KNOWNBUG LICENSE README.md TODO Y2KINFO
+recursive-include include *.cpp *.c *.h makefile.* *.hpp *.hxx *.cxx *.txt ANNOUNCE CHANGES INSTALL KNOWNBUG LICENSE README.md TODO Y2KINFO
 recursive-include scripts greekocr
-include INSTALL LICENSE README rename.py MANIFEST.in CHANGES
+include INSTALL LICENSE README.md rename.py MANIFEST.in CHANGES
 recursive-include doc *.txt *.css *.py *.jpg *.jpeg *.png *.gif *.html
+recursive-include example *.png *.md *.xml
