@@ -42,7 +42,7 @@ Authors
 -------
 
 Christian Brandt, 2011
-Christoph Dalitz, <christoph dot dalitz at hsnr dot de>, 2011
+Christoph Dalitz, 2011, https://lionel.kr.hsnr.de/~dalitz/
 Andreas Miller, 2023
 
 Please contact Christoph Dalitz for questions about this toolkit.
