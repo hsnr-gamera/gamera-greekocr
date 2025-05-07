@@ -41,9 +41,9 @@ See the section "Installation" in 'doc/html/index.html' or
 Authors
 -------
 
-Christian Brandt, 2011
-Christoph Dalitz, 2011, https://lionel.kr.hsnr.de/~dalitz/
-Andreas Miller, 2023
+ - Christian Brandt, 2011
+ - Christoph Dalitz, 2011-2025, https://lionel.kr.hsnr.de/~dalitz/
+ - Andreas Miller, 2023
 
 Please contact Christoph Dalitz for questions about this toolkit.
 
